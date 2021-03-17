@@ -14,8 +14,8 @@ import tensorflow as tf
 #you are required to Unzip the bayesian_nn.zip & put the path of the folder here (folder name is bayesian_nn)
 
 
-with zipfile.ZipFile('/content/bayesian_nn.zip', 'r') as zip_ref:
-    zip_ref.extractall('/content/bayesian_nn')
+with zipfile.ZipFile('bayesian_nn.zip', 'r') as zip_ref:
+    zip_ref.extractall('bayesian_nn')
 
 model = keras.models.load_model('/content/bayesian_nn')
 
