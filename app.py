@@ -17,7 +17,7 @@ import tensorflow as tf
 with zipfile.ZipFile('bayesian_nn.zip', 'r') as zip_ref:
     zip_ref.extractall('bayesian_nn')
 
-model = keras.models.load_model('/content/bayesian_nn')
+model = keras.models.load_model('/bayesian_nn')
 
 # hardcoding some inputs: please modify the variable to take values from the flutter app
 '''
