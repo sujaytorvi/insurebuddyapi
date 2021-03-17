@@ -304,7 +304,12 @@ def recommend_policy(gender, marital_status,age, occupation, income, ailment):
   
   
   app = Flask(__name__)
-  @app.route("/", methods = ['GET','POST'])
+  
+@app.route("/")
+def hello_api():
+  return "Welcome to Heroku App :: InsureBuddy"
+  
+@app.route("/getpolicy", methods = ['GET','POST'])
 def get_recommendation():
   gender = str(request.args.get('gender'))
   marital_status = str(request.args.get('marital_status'))
@@ -318,6 +323,5 @@ def get_recommendation():
   predicted_premium = ["Rs." + str(i) for i in predicted_premium]
   predicted_coverage = ["Rs." + str(i) + ' + Additional' for i in predicted_coverage]
   predicted_tenure = [str(i) + ' Years' for i in predicted_tenure]
-  return jsonify({"Policy-Number": policy_number, "Policy-Amount" : predicted_policy, "Policy-Premium" : predicted_premium, "Policy-Coverage" : predicted_coverage, "Policy-Tenure" : predicted_tenure}) 
-
+  return jsonify({"Policy-Number": policy_number, "Policy-Amount" : predicted_policy, "Policy-Premium" : predicted_premium, "Policy-Coverage" : predicted_coverage, "Policy-Tenure" : predicted_tenure})
 app.run()
