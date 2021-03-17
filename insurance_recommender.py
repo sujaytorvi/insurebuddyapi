@@ -306,12 +306,8 @@ def recommend_policy(gender, marital_status,age, occupation, income, ailment):
   ## Flask Code 
   
 app = Flask(__name__)
-
-@app.route("/")
-def hello_api():
-  return "Welcome to Heroku App :: InsureBuddy"
   
-@app.route("/getpolicy", methods = ['GET','POST'])
+@app.route("/", methods = ['GET','POST'])
 def get_recommendation():
   gender = str(request.args.get('gender'))
   marital_status = str(request.args.get('marital_status'))
