@@ -4,7 +4,6 @@ import numpy as np
 import random
 from flask import Flask
 from flask import jsonify
-import zipfile
 from flask import request
 # Critical Imports for running the model 
 
