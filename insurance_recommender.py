@@ -2,6 +2,7 @@
 
 import numpy as np
 import random
+import zipfile
 from flask import Flask
 from flask import jsonify
 from flask import request
