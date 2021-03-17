@@ -330,4 +330,5 @@ def get_recommendation():
   predicted_tenure = [str(i) + ' Years' for i in predicted_tenure]
   return jsonify({"Policy-Number": policy_number, "Policy-Amount" : predicted_policy, "Policy-Premium" : predicted_premium, "Policy-Coverage" : predicted_coverage, "Policy-Tenure" : predicted_tenure}) 
 
-app.run()
+if __name__ == '__main__':
+    app.run(debug=True)
