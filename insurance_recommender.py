@@ -5,7 +5,6 @@ import random
 from flask import Flask
 from flask import jsonify
 from flask import request
-import zipfile
 # Critical Imports for running the model 
 
 from tensorflow import keras
@@ -13,8 +12,9 @@ import tensorflow as tf
 
 #you are required to Unzip the bayesian_nn.zip & put the path of the folder here (folder name is bayesian_nn)
 
+
 with zipfile.ZipFile('bayesian_nn.zip', 'r') as zip_ref:
-    zip_ref.extractall('/content/bayesian_nn')
+    zip_ref.extractall('bayesian_nn')
 
 model = keras.models.load_model('/content/bayesian_nn')
 
@@ -38,6 +38,7 @@ ailment = 'No'
 #### Income: {0: 0-5 lac,1: 10-20 lac,2: 20-30 lac,3: 30-40 lac,4: 40-50 lac,5: 5-10 lac}
 
 #### Any Serious Medical Ailment: {0: No, 1: Yes}
+
 
 
 def take_inputs(gender, marital_status,age, occupation, income, ailment):
@@ -305,8 +306,8 @@ def recommend_policy(gender, marital_status,age, occupation, income, ailment):
   
   ## Flask Code 
   
-app = Flask(__name__)
   
+app = Flask(__name__)
 @app.route("/", methods = ['GET','POST'])
 def get_recommendation():
   gender = str(request.args.get('gender'))
@@ -321,5 +322,6 @@ def get_recommendation():
   predicted_premium = ["Rs." + str(i) for i in predicted_premium]
   predicted_coverage = ["Rs." + str(i) + ' + Additional' for i in predicted_coverage]
   predicted_tenure = [str(i) + ' Years' for i in predicted_tenure]
-  return jsonify({"Policy-Number": policy_number, "Policy-Amount" : predicted_policy, "Policy-Premium" : predicted_premium, "Policy-Coverage" : predicted_coverage, "Policy-Tenure" : predicted_tenure})
+  return jsonify({"Policy-Number": policy_number, "Policy-Amount" : predicted_policy, "Policy-Premium" : predicted_premium, "Policy-Coverage" : predicted_coverage, "Policy-Tenure" : predicted_tenure}) 
+
 app.run()
