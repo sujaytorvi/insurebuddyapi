@@ -314,7 +314,7 @@ app = Flask(__name__)
 def hello():
     return "Hello Heroku Server! InsureBuddy Here!!!"
 
-@app.route("/get", methods = ['GET','POST'])
+@app.route("/getpolicy", methods = ['GET','POST'])
 def get_recommendation():
   gender = str(request.args.get('gender'))
   marital_status = str(request.args.get('marital_status'))
