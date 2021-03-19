@@ -328,7 +328,24 @@ def get_recommendation():
   predicted_premium = ["Rs." + str(i) for i in predicted_premium]
   predicted_coverage = ["Rs." + str(i) + ' + Additional' for i in predicted_coverage]
   predicted_tenure = [str(i) + ' Years' for i in predicted_tenure]
-  return jsonify({"Policy-Number": policy_number, "Policy-Amount" : predicted_policy, "Policy-Premium" : predicted_premium, "Policy-Coverage" : predicted_coverage, "Policy-Tenure" : predicted_tenure}) 
+    
+  output = ''
+  output = output + '['
+  for i in range(0,len(policy_number)):
+    output = output + '{'
+    output = output + '"policyAmount":"{}",'.format(predicted_policy[i])
+    output = output + '"policyCoverage":"{}",'.format(predicted_coverage[i])
+    output = output + '"policyNumber":"{}",'.format(policy_number[i])
+    output = output + '"policyPremium":"{}",'.format(predicted_premium[i])
+    output = output + '"policyTenure":"{}"'.format(predicted_tenure[i])
+    if(i == len(policy_number) - 1):
+     output = output + '}'
+    else:
+      output = output + '},'
+  output = output + ']'
+
+  return output
+
 
 if __name__ == '__main__':
     app.run(debug=True)
