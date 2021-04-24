@@ -68,37 +68,37 @@ def take_inputs(gender, marital_status,age, occupation, income, ailment):
   elif(marital_status == 'Unmarried'):
     marital_status = 1
 
-  if(age == 'Below-25-Years'):
+  if(age == 'Below_25_Years'):
     age = 3
-  elif(age == '25-40-Years'):
+  elif(age == '25_40_Years'):
     age = 0
-  elif(age == '41-60-Years'):
+  elif(age == '41_60_Years'):
     age = 1
-  elif(age == 'Above-60-Years'):
+  elif(age == 'Above_60_Years'):
     age = 2
   
-  if(occupation == 'Corporate-Employee'):
+  if(occupation == 'Corporate_Employee'):
     occupation = 0
   elif(occupation == 'Enterpreneur'):
     occupation = 1
-  elif(occupation == 'Medical-Professional'):
+  elif(occupation == 'Medical_Professional'):
     occupation = 2
-  elif(occupation == 'Military-Service'):
+  elif(occupation == 'Military_Service'):
     occupation = 3
-  elif(occupation == 'Self-Employed'):
+  elif(occupation == 'Self_Employed'):
     occupation = 4
 
-  if(income == '0-5-lac'):
+  if(income == '0_5_lac'):
     income = 0
-  elif(income == '5-10-lac'):
+  elif(income == '5_10_lac'):
     income = 5
-  elif(income == '10-20-lac'):
+  elif(income == '10_20_lac'):
     income = 1
-  elif(income == '20-30-lac'):
+  elif(income == '20_30_lac'):
     income = 2
-  elif(income == '30-40-lac'):
+  elif(income == '30_40_lac'):
     income = 3
-  elif(income == '40-50-lac'):
+  elif(income == '40_50_lac'):
     income = 4
 
   if(ailment == 'Yes'):
